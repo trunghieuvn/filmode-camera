@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://trunghieuvn.github.io/filmode-camera/sitemap.xml

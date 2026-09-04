@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Privacy Policy — Camera Filmode for Android</title>
+<meta name="description" content="Privacy Policy for Camera Filmode (app.filmode.lab): what the camera, location and storage permissions are used for, why geotagging stays on your device, and why the app sends nothing anywhere.">
+<link rel="canonical" href="https://trunghieuvn.github.io/filmode-camera/privacy.html">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0B0B0C">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Camera Filmode">
+<meta property="og:title" content="Privacy Policy — Camera Filmode for Android">
+<meta property="og:description" content="What Camera Filmode accesses and why: camera, optional location for on-device EXIF geotagging, storage to save photos. No account, no photo uploads.">
+<meta property="og:url" content="https://trunghieuvn.github.io/filmode-camera/privacy.html">
+<meta property="og:image" content="https://trunghieuvn.github.io/filmode-camera/assets/icon.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Privacy Policy — Camera Filmode for Android">
+<meta name="twitter:description" content="What Camera Filmode accesses and why: camera, optional location for on-device EXIF geotagging, storage to save photos. No account, no photo uploads.">
+<meta name="twitter:image" content="https://trunghieuvn.github.io/filmode-camera/assets/icon.png">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="apple-touch-icon" href="assets/icon.png">
+<link rel="stylesheet" href="css/style.css?v=20260904">
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-pill">FREE</span>
+  <span>Manual camera for Android — RAW DNG, no account, nothing uploaded</span>
+</div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="wordmark" href="index.html" aria-label="Camera Filmode home">
+      <svg class="wordmark-bubble" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="2" y="5" width="20" height="15" rx="4.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 5 10 2.6h4L15.5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="12.6" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+      Camera Filmode
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="index.html#features">Features</a>
+      <a href="index.html#modes">Modes</a>
+      <a href="index.html#screenshots">Screenshots</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="support.html">Support</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-solid btn-small" href="index.html#get">Coming soon</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="prose">
+  <div class="container container-narrow">
+    <h1>Privacy Policy</h1>
+    <p class="upd">Effective date: September 4, 2026</p>
+
+    <p>Camera Filmode — published on Google Play as <em>Camera Filmode: Pro Manual RAW</em>, package <code>app.filmode.lab</code> — is a manual camera app for Android published by FightTech. This policy describes exactly what the app accesses on your device and what leaves it. In short: <strong>your photos are captured, processed and stored on your phone, they are never uploaded, there is no account, and we do not sell any data.</strong></p>
+
+    <h2>What the app does</h2>
+    <p>The app operates your phone's camera, applies the settings and film look you choose, and writes the resulting image file to your own storage. Everything — exposure, colour, LUTs, RAW conversion and the built-in photo editor — runs on your device's own CPU and GPU. There is no server component, no cloud processing, no user account and no sign-in.</p>
+
+    <h2>Permissions the app declares</h2>
+    <p>These are the only permissions in the app's manifest. Android asks you for each one at the moment it is first needed, and you can revoke any of them later in <em>Settings → Apps → Camera Filmode → Permissions</em>.</p>
+    <ul>
+      <li><strong>Camera</strong> (<code>CAMERA</code>) — required. It is what runs the viewfinder and takes the photo. Without it the app cannot function. The camera feed is rendered on screen and written to the file you capture; it is never streamed anywhere.</li>
+      <li><strong>Location, optional</strong> (<code>ACCESS_FINE_LOCATION</code>, <code>ACCESS_COARSE_LOCATION</code>) — used for one purpose only: writing GPS coordinates into the EXIF metadata of the photos you take, on the device. It is requested only if you switch on <em>Save location in photos</em> in the app's settings, which is off by default. The coordinates are stored inside your own image files and are not transmitted to us or to any third party. Leave the setting off and the app never asks for the permission and never reads your location. GPS hardware is declared as optional, so the app installs on phones without it.</li>
+      <li><strong>Storage, on older Android only</strong> (<code>WRITE_EXTERNAL_STORAGE</code>, declared with <code>maxSdkVersion="28"</code>) — needed on Android 9 and earlier to save your photos into the shared Pictures library. On Android 10 and newer the app writes through the system MediaStore and this permission is neither declared nor requested. The app does not ask for broad access to read your existing photo library.</li>
+    </ul>
+    <p>The app declares no contacts, microphone, phone, calendar, SMS or background-location permission, and no "all files access".</p>
+
+    <h2>Your photos and where they go</h2>
+    <p>Photos are written into a folder inside your device's public <code>Pictures</code> directory — <code>Pictures/Filmode</code> by default, or whichever folder name you set — and registered with your media library so Gallery and other apps can see them. You choose the file format (JPEG, HEIF or PNG, plus RAW DNG on devices that support it), the quality and the filename pattern. Photos you take belong to you and stay on your device until you move or delete them; uninstalling the app does not delete them.</p>
+    <p>The image files carry standard EXIF metadata written by the app — exposure time, ISO, aperture, focal length, white balance, orientation, the date and time from your device, and GPS coordinates if and only if you enabled geotagging. That metadata travels inside the file, so bear it in mind before sharing a photo publicly. It is written locally; we never see it.</p>
+
+    <h2>Analytics</h2>
+    <p>The published build of Camera Filmode contains <strong>no analytics SDK</strong>. It makes no network requests of any kind: no usage reporting, no crash reporting, no advertising, no billing, no social login and no attribution or tracking library. Nothing about how you use the app leaves your device, because there is nowhere for it to go.</p>
+    <p>The code is written so that Google Firebase Analytics can be switched on later by adding a configuration file to the build. If that ever happens, it would record only anonymous, aggregated usage — which screens are opened, that a photo was captured or saved, which drive or exposure mode was used — never your photos, any part of a photo, file names, folder names or your location. This page and the app's Play Store data safety declaration would be updated before such a build shipped.</p>
+
+    <h2>Data we collect</h2>
+    <p>We — FightTech — collect nothing. We operate no server for this app and hold no database of its users. We cannot identify you, cannot see your photos, and have nothing to hand over or delete on request. The app has no account system, no newsletter and no in-app purchase.</p>
+
+    <h2>Data shared with third parties</h2>
+    <p>Nothing is shared with anyone. No data is sold, and none is used for advertising or ad targeting.</p>
+
+    <h2>Data retention and deletion</h2>
+    <p>All app data — your settings, imported LUTs, saved presets and recipes — lives on your device and is removed when you uninstall the app. Photos you have taken are yours and stay in <code>Pictures</code> until you delete them. We hold no data about you, so there is nothing for us to retain and nothing to request the deletion of.</p>
+
+    <h2>Children</h2>
+    <p>The app is not directed at children under 13 and does not knowingly collect personal information from children.</p>
+
+    <h2>Your responsibility</h2>
+    <p>You are responsible for the photographs you take and how you use them, including consent of the people you photograph and the law of the place you are shooting in.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>If the app's data practices change, this page will be updated and the date above revised before the new version is released. If a future version adds a permission or an SDK, it will be listed here first.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about this policy, or a request about your data? Email <a href="mailto:trunghieu4121993@gmail.com">trunghieu4121993@gmail.com</a>.</p>
+
+    <p class="prose-nav"><a href="index.html">← Back to Camera Filmode</a> · <a href="terms.html">Terms</a> · <a href="support.html">Support</a></p>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="wordmark footer-wordmark">Camera Filmode</span>
+      <p>A manual, RAW-capable camera for Android — made in Vietnam by FightTech.</p>
+      <p class="footer-pkg">app.filmode.lab</p>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="support.html">Support</a>
+      <a href="mailto:trunghieu4121993@gmail.com">Contact</a>
+    </nav>
+  </div>
+  <div class="container footer-copy">
+    <p>© 2026 FightTech. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="js/main.js?v=20260904c"></script>
+</body>
+</html>
