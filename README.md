@@ -1,10 +1,29 @@
-# filmode-camera
+# web-camera — FilCam marketing site
 
-Landing page for **Camera Filmode**, a manual camera app for Android
-(`app.filmode.lab`): ISO, shutter to 30 seconds, Kelvin white balance,
-manual focus, RAW DNG, bracketing, intervalometer and .cube film looks.
+Static site for the Android app **FilCam: Pro Manual RAW Camera** (`app.filmode.filcam`).
+No build step: plain HTML, one stylesheet, one script.
 
-Published at <https://trunghieuvn.github.io/filmode-camera/>.
+Served from a GitHub Pages **project subpath**, so every asset reference is relative
+(`css/style.css`, not `/css/style.css`). Canonical / Open Graph URLs point at
+`https://trunghieuvn.github.io/filmode-camera/` — change those if the repo is renamed.
 
-Static HTML with no build step. The source of truth lives in the app
-repository under `web-camera/`; this repository is the deployed copy.
+```
+index.html    hero, screenshots, how it works, features, privacy band, P/S/I/M modes, FAQ, CTA
+privacy.html  the Play Store data-safety privacy URL — keep it truthful, it mirrors lab/src
+terms.html
+support.html
+css/style.css structure copied from videotoaudio/web-videocompressor, recoloured dark
+js/main.js    scroll reveal + screenshot lightbox (no i18n: this site is English only)
+assets/       icon.png, favicon.svg (from filmode/web-landingpage/assets/lab-icon.*)
+screenshots/  01..07, copied from filmode/web-landingpage/assets/lab/
+robots.txt, sitemap.xml
+```
+
+Structure and CSS were copied from `ai-studio/videotoaudio/web-videocompressor`.
+Feature copy comes from `docs/FV5_ROADMAP.md` §1 (shipped) plus RAW/DNG, which is in
+build now. Nothing else from §2 is advertised.
+
+The app is **not on Google Play yet**: the store badges are deliberately non-clickable
+`<span class="badge">` elements reading "Coming soon to Google Play". Turn them back into
+`<a href="https://play.google.com/store/apps/details?id=app.filmode.filcam">` on launch day,
+and drop the `border: 1px dashed` rule on `.badge` in `css/style.css`.
