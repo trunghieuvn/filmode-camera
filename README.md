@@ -9,7 +9,13 @@ Served from a GitHub Pages **project subpath**, so every asset reference is rela
 
 ```
 index.html    hero, screenshots, how it works, features, privacy band, P/S/I/M modes, FAQ, CTA
-privacy.html  the Play Store data-safety privacy URL — keep it truthful, it mirrors lab/src
+privacy.html  the Play Store data-safety privacy URL — keep it truthful, it mirrors filcam/src.
+              From 1.0.1 it describes Firebase Analytics + Crashlytics; if a build ever ships
+              WITHOUT filcam/google-services.json this page has to go back to saying so.
+groundglass-privacy.html  a second app's policy, kept alive here only because the
+              Groundglass build in Play review still declares this URL. Its home is now
+              ../web-groundglass/privacy.html → trunghieuvn.github.io/groundglass/privacy.html;
+              edit BOTH copies or they will disagree.
 terms.html
 support.html
 css/style.css structure copied from videotoaudio/web-videocompressor, recoloured dark
@@ -23,7 +29,8 @@ Structure and CSS were copied from `ai-studio/videotoaudio/web-videocompressor`.
 Feature copy comes from `docs/FV5_ROADMAP.md` §1 (shipped) plus RAW/DNG, which is in
 build now. Nothing else from §2 is advertised.
 
-The app is **not on Google Play yet**: the store badges are deliberately non-clickable
-`<span class="badge">` elements reading "Coming soon to Google Play". Turn them back into
-`<a href="https://play.google.com/store/apps/details?id=app.filmode.filcam">` on launch day,
-and drop the `border: 1px dashed` rule on `.badge` in `css/style.css`.
+The app is live on Google Play, so both store badges are real links to
+`https://play.google.com/store/apps/details?id=app.filmode.filcam` and `.badge` has a solid
+border. (They used to be non-clickable `<span>`s reading "Coming soon", with a dashed border,
+because linking to a listing that 404s is worse than not linking at all — that is still the rule
+for an app in review; `../web-groundglass/index.html` is in exactly that state today.)

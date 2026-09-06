@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Privacy Policy — FilCam for Android</title>
-<meta name="description" content="Privacy Policy for FilCam (app.filmode.filcam): what the camera, location and storage permissions are used for, why geotagging stays on your device, and why the app has no internet permission and sends nothing anywhere.">
+<meta name="description" content="Privacy Policy for FilCam (app.filmode.filcam): what the camera, location and storage permissions are used for, why geotagging stays on your device, why your photos are never uploaded, and exactly what the anonymous usage and crash reporting sends — and how to switch it off.">
 <link rel="canonical" href="https://trunghieuvn.github.io/filmode-camera/privacy.html">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#0B0B0C">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="FilCam">
 <meta property="og:title" content="Privacy Policy — FilCam for Android">
-<meta property="og:description" content="What FilCam accesses and why: camera, optional location for on-device EXIF geotagging, storage to save photos. No account, no analytics, no network access.">
+<meta property="og:description" content="What FilCam accesses and why: camera, optional location for on-device EXIF geotagging, storage to save photos. No account, no photo uploads, and one switch for the anonymous usage and crash reporting.">
 <meta property="og:url" content="https://trunghieuvn.github.io/filmode-camera/privacy.html">
 <meta property="og:image" content="https://trunghieuvn.github.io/filmode-camera/assets/icon.png">
 <meta name="twitter:card" content="summary">
@@ -52,40 +52,49 @@
 <section class="prose">
   <div class="container container-narrow">
     <h1>Privacy Policy</h1>
-    <p class="upd">Effective date: September 5, 2026</p>
+    <p class="upd">Effective date: September 6, 2026 · Last revised for version 1.0.1</p>
 
-    <p>FilCam — published on Google Play as <em>FilCam: Pro Manual RAW Camera</em>, package <code>app.filmode.filcam</code> — is a manual camera app for Android published by FightTech. This policy describes exactly what the app accesses on your device and what leaves it. In short: <strong>your photos are captured, processed and stored on your phone, they are never uploaded, and there is no account.</strong> This version of the app has no network access at all — it collects nothing and sends nothing. We do not sell any data.</p>
+    <p>FilCam — published on Google Play as <em>FilCam: Pro Manual RAW Camera</em>, package <code>app.filmode.filcam</code> — is a manual camera app for Android published by FightTech. This policy describes exactly what the app accesses on your device and what leaves it. In short: <strong>your photos are captured, processed and stored on your phone, they are never uploaded, and there is no account.</strong> From version 1.0.1 the app does send anonymous usage and crash reports, so that a camera that fails on your phone can be fixed for your phone; the section below lists exactly what those contain, and one switch in Settings turns them off. We do not sell any data.</p>
 
     <h2>What the app does</h2>
-    <p>The app operates your phone's camera, applies the settings and film look you choose, and writes the resulting image file to your own storage. Everything — exposure, colour, LUTs, RAW conversion and the built-in photo editor — runs on your device's own CPU and GPU. There is no cloud processing of your images, no user account and no sign-in. The app declares no internet permission, so it cannot send anything anywhere even if it wanted to.</p>
+    <p>The app operates your phone's camera, applies the settings and film look you choose, and writes the resulting image file to your own storage. Everything — exposure, colour, LUTs, RAW conversion and the built-in photo editor — runs on your device's own CPU and GPU. There is no cloud processing of your images, no user account and no sign-in. The only thing the app ever sends over the network is the anonymous usage and crash reporting described below — never an image, and never any part of one.</p>
 
     <h2>Permissions the app declares</h2>
-    <p>These are the only permissions in the app's manifest. Android asks you for each one at the moment it is first needed, and you can revoke any of them later in <em>Settings → Apps → FilCam → Permissions</em>.</p>
+    <p>These are the only permissions in the app's manifest. Android asks you for the first three at the moment each is first needed, and you can revoke any of those later in <em>Settings → Apps → FilCam → Permissions</em>; the last group is granted at install time and is what the reporting switch controls.</p>
     <ul>
       <li><strong>Camera</strong> (<code>CAMERA</code>) — required. It is what runs the viewfinder and takes the photo. Without it the app cannot function. The camera feed is rendered on screen and written to the file you capture; it is never streamed anywhere.</li>
       <li><strong>Location, optional</strong> (<code>ACCESS_FINE_LOCATION</code>, <code>ACCESS_COARSE_LOCATION</code>) — used for one purpose only: writing GPS coordinates into the EXIF metadata of the photos you take, on the device. It is requested only if you switch on <em>Save location in photos</em> in the app's settings, which is off by default. The coordinates are stored inside your own image files and are not transmitted to us or to any third party. Leave the setting off and the app never asks for the permission and never reads your location. GPS hardware is declared as optional, so the app installs on phones without it.</li>
       <li><strong>Storage, on older Android only</strong> (<code>WRITE_EXTERNAL_STORAGE</code>, declared with <code>maxSdkVersion="28"</code>) — needed on Android 9 and earlier to save your photos into the shared Pictures library. On Android 10 and newer the app writes through the system MediaStore and this permission is neither declared nor requested. The app does not ask for broad access to read your existing photo library.</li>
+      <li><strong>Network</strong> (<code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code>, <code>WAKE_LOCK</code>) — these are not permissions Android asks you about; they are granted at install time, and they come from the reporting libraries described in the next section. They are used to deliver a usage or crash report, and to notice whether the phone is online before trying. The same libraries add one Play Store permission, <code>com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE</code>, which lets Google Play tell the app which listing the install came from. Nothing else in the app uses the network: there is no update check, no ad request, no remote configuration and no upload of anything you shot.</li>
     </ul>
-    <p>The app declares <strong>no internet permission</strong>, and no contacts, microphone, phone, calendar, SMS or background-location permission, and no "all files access". It also declares <strong>no advertising permission</strong>: <code>AD_ID</code> and the Android Ad Services permissions are explicitly removed from the build, so the app cannot read your advertising identifier.</p>
+    <p>The app declares no contacts, microphone, phone, calendar, SMS or background-location permission, and no "all files access". It also declares <strong>no advertising permission</strong>: <code>AD_ID</code> and the Android Ad Services permissions are explicitly removed from the build, so the app cannot read your advertising identifier.</p>
 
     <h2>Your photos and where they go</h2>
     <p>Photos are written into a folder inside your device's public <code>Pictures</code> directory — <code>Pictures/Filmode</code> by default, or whichever folder name you set — and registered with your media library so Gallery and other apps can see them. You choose the file format (JPEG, HEIF or PNG, plus RAW DNG on devices that support it), the quality and the filename pattern. Photos you take belong to you and stay on your device until you move or delete them; uninstalling the app does not delete them.</p>
     <p>The image files carry standard EXIF metadata written by the app — exposure time, ISO, aperture, focal length, white balance, orientation, the date and time from your device, and GPS coordinates if and only if you enabled geotagging. That metadata travels inside the file, so bear it in mind before sharing a photo publicly. It is written locally; we never see it.</p>
 
     <h2>Analytics and crash reporting</h2>
-    <p><strong>There is none.</strong> This version of FilCam contains no analytics SDK, no crash-reporting SDK, no advertising SDK and no network permission. Nothing about how you use the app is counted, recorded or transmitted, and there is no switch to turn off because there is nothing running.</p>
-    <p><strong>What is never sent — because nothing is:</strong> your photographs or any part of one, thumbnails, file names, folder names, your GPS location or geotags, your imported LUT files, the contents of your media library, your advertising identifier, your name, email or any account identifier.</p>
-    <p><strong>No advertising.</strong> The app contains no ads and no ad SDK. The <code>AD_ID</code> permission is not declared, so the app cannot read your advertising identifier.</p>
+    <p>From version 1.0.1 FilCam includes two Google libraries: <strong>Firebase Analytics</strong> (Google Analytics for Firebase) and <strong>Firebase Crashlytics</strong>. They exist for one reason. Manual camera control on Android depends on what each manufacturer exposes through the Camera2 API, and it differs from phone to phone; without a crash report we cannot know that RAW capture fails on some particular model, and cannot fix it.</p>
+    <p><strong>What is sent.</strong></p>
+    <ul>
+      <li><strong>Which features you used</strong>, as plain counters with no content — that a photo was captured, saved or shared, that a LUT or a preset was applied or imported, that a recipe was saved, that a long exposure was taken, and which of the two screens (camera, photo editor) you were on. Never the photo, never the file, never the name of the LUT file you imported.</li>
+      <li><strong>Crash and error reports</strong> — the stack trace when the app crashes or when a camera operation fails (opening the camera, taking a picture, writing a DNG), the name of the operation that failed, and the recent in-app steps that led up to it. Reports are attributed to the app with an <code>app</code> key so we can tell FilCam's reports from our other apps'.</li>
+      <li><strong>Device and app context</strong> collected automatically by those libraries: your phone's model and manufacturer, the Android version, the app version, the language and country setting, the screen size, and a randomly generated installation identifier that Google's SDK creates. That identifier is not your advertising ID — the app cannot read your advertising ID at all — and it is reset if you clear the app's data or reinstall.</li>
+    </ul>
+    <p><strong>What is never sent:</strong> your photographs or any part of one, thumbnails, file names, folder names, your GPS location or geotags, the location or contents of your imported LUT files, the contents of your media library, your advertising identifier, your name, your email or any account identifier. There is no account, so there is nothing to attach a report to a person by.</p>
+    <p><strong>The switch.</strong> Open <em>Settings</em> in the app and turn off <em>Send usage and crash reports</em>. It is on when you install the app; switching it off stops collection in both libraries immediately, for as long as it stays off, and no further report leaves the device. Uninstalling the app has the same effect.</p>
+    <p><strong>Who processes it.</strong> Google, as our processor, under the <a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase privacy documentation</a> and <a href="https://policies.google.com/privacy" rel="noopener">Google's Privacy Policy</a>. The data lands in our Firebase project and is visible only to us, in aggregate; we do not attempt to identify anyone from it, and we do not sell it, share it or use it for advertising. Retention follows Firebase's own settings: user-level analytics data is kept for 2 months, Google's default, which we have not extended, and Crashlytics reports are kept for 90 days.</p>
+    <p><strong>No advertising.</strong> The app contains no ads and no ad SDK. The <code>AD_ID</code> permission is not declared, so the app cannot read your advertising identifier, and no data from the app is used for advertising or ad targeting.</p>
 
     <h2>Data we collect</h2>
-    <p><strong>None.</strong> We — FightTech — operate no server for this app, hold no database of its users, and receive no data from it whatsoever. We never see your photos, your settings or the fact that you opened the app. There is no account system, no newsletter and no in-app purchase.</p>
+    <p>We — FightTech — operate no server of our own for this app and hold no database of its users. What reaches us is only the anonymous usage and crash reporting described above, through Google's Firebase, and only while you leave that switch on. <strong>We never see your photos, your files or your location.</strong> There is no account system, no newsletter and no in-app purchase.</p>
 
     <h2>Data shared with third parties</h2>
-    <p><strong>None.</strong> The app contains no third-party SDK that receives data, and no data is shared, sold or used for advertising or ad targeting. Nothing leaves your device.</p>
+    <p>The only third parties that receive anything are <strong>Google's Firebase Analytics and Crashlytics</strong>, acting as our processor for the reporting described above. No data is sold, and none of it is shared with anyone else or used for advertising or ad targeting. Nothing else leaves your device.</p>
 
     <h2>Data retention and deletion</h2>
     <p>All app data — your settings, imported LUTs, saved presets and recipes — lives on your device and is removed when you uninstall the app. Photos you have taken are yours and stay in <code>Pictures</code> until you delete them.</p>
-    <p>We hold nothing to retain or delete: no data about you ever reaches us. Uninstalling the app, or clearing its data, removes everything it has stored — all of which was only ever on your own device.</p>
+    <p>Usage reports are kept for 2 months and crash reports for 90 days, then deleted by Google automatically. Uninstalling the app, or clearing its data, removes everything the app has stored on your device and resets the installation identifier, so later reports cannot be linked to earlier ones. To have reports we already hold deleted, email the address below — tell us your phone model and roughly when you used the app, since we hold no identifier that could point us to you otherwise.</p>
 
     <h2>Children</h2>
     <p>The app is not directed at children under 13 and does not knowingly collect personal information from children.</p>
@@ -94,7 +103,7 @@
     <p>You are responsible for the photographs you take and how you use them, including consent of the people you photograph and the law of the place you are shooting in.</p>
 
     <h2>Changes to this policy</h2>
-    <p>If the app's data practices change, this page will be updated and the date above revised before the new version is released. If a future version adds a permission or an SDK, it will be listed here first. <em>Revised on September 5, 2026 for the first FilCam release, which ships with no analytics, no crash reporting and no internet permission. Should a later version add any of these, this page will say so, and the in-app switch that controls it, before that version is released.</em></p>
+    <p>If the app's data practices change, this page will be updated and the date above revised before the new version is released. If a future version adds a permission or an SDK, it will be listed here first. <em>Revised on September 6, 2026 for version 1.0.1, which adds Firebase Analytics and Crashlytics, the network permissions they need, and the <em>Send usage and crash reports</em> switch that turns them off. Version 1.0.0 had none of these and no network access at all.</em></p>
 
     <h2>Contact</h2>
     <p>Questions about this policy, or a request about your data? Email <a href="mailto:trunghieu4121993@gmail.com">trunghieu4121993@gmail.com</a>.</p>
