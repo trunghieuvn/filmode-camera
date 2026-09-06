@@ -677,7 +677,8 @@ a.badge:hover { transform: translateY(-1px); box-shadow: 0 18px 38px -18px rgba(
 .prose h2 { font-size: 1.32rem; margin: 2.2rem 0 0.5rem; }
 .prose p, .prose li { color: var(--muted); }
 .prose p + p { margin-top: 0.8rem; }
-.prose ul { padding-left: 1.3em; margin: 0.6rem 0; display: grid; gap: 8px; }
+.prose ul, .prose ol { padding-left: 1.3em; margin: 0.6rem 0; display: grid; gap: 8px; }
+.prose h3 { font-size: 1.05rem; margin: 1.5rem 0 0.4rem; }
 .prose a { color: var(--accent); text-decoration: none; }
 .prose a:hover { text-decoration: underline; }
 .prose code {
