@@ -1,4 +1,4 @@
-/* Camera Filmode landing — same component set as the Video Compressor landing,
+/* FilCam landing — same component set as the Video Compressor landing,
    restyled dark: film-lab black, bone ink, teal/amber viewfinder gradients.
    Dark only, on purpose — it is a camera app. No external assets, no build step. */
 
@@ -150,7 +150,7 @@ a { color: inherit; }
 .site-nav {
   display: none;
   gap: 22px;
-  margin-left: 6px;
+  margin-inline-start: 6px;
 }
 .site-nav a {
   text-decoration: none;
@@ -161,7 +161,7 @@ a { color: inherit; }
 }
 .site-nav a:hover { color: var(--ink); }
 .header-actions {
-  margin-left: auto;
+  margin-inline-start: auto;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -229,7 +229,7 @@ a { color: inherit; }
   gap: 14px;
   justify-content: center;
 }
-/* The app is not on Google Play yet, so the badge is deliberately not a link. */
+/* Store badges: Google Play, and the App Store (iOS page until the listing is live). */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -245,7 +245,7 @@ a { color: inherit; }
 }
 a.badge:hover { transform: translateY(-1px); box-shadow: 0 18px 38px -18px rgba(87, 227, 207, 0.7); }
 .badge > svg { color: var(--accent); flex: none; }
-.badge-text { display: flex; flex-direction: column; line-height: 1.25; text-align: left; }
+.badge-text { display: flex; flex-direction: column; line-height: 1.25; text-align: start; }
 .badge-text small {
   font-size: 0.62rem;
   text-transform: uppercase;
@@ -255,6 +255,8 @@ a.badge:hover { transform: translateY(-1px); box-shadow: 0 18px 38px -18px rgba(
 .badge-text strong { font-size: 1.02rem; font-weight: 600; }
 .badge-lg { padding: 14px 30px 14px 20px; gap: 14px; }
 .badge-lg .badge-text strong { font-size: 1.16rem; }
+/* Not live yet: dashed, and it goes to the iOS page, never to a store listing that 404s. */
+.badge-soon { border-style: dashed; }
 .badge-note {
   font-size: 0.82rem;
   letter-spacing: 0.01em;
@@ -527,7 +529,7 @@ a.badge:hover { transform: translateY(-1px); box-shadow: 0 18px 38px -18px rgba(
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 480 / 1066;
+  aspect-ratio: 9 / 16;
   object-fit: cover;
   border-radius: 26px;
   border: 1px solid var(--line);
@@ -677,7 +679,7 @@ a.badge:hover { transform: translateY(-1px); box-shadow: 0 18px 38px -18px rgba(
 .prose h2 { font-size: 1.32rem; margin: 2.2rem 0 0.5rem; }
 .prose p, .prose li { color: var(--muted); }
 .prose p + p { margin-top: 0.8rem; }
-.prose ul, .prose ol { padding-left: 1.3em; margin: 0.6rem 0; display: grid; gap: 8px; }
+.prose ul, .prose ol { padding-inline-start: 1.3em; margin: 0.6rem 0; display: grid; gap: 8px; }
 .prose h3 { font-size: 1.05rem; margin: 1.5rem 0 0.4rem; }
 .prose a { color: var(--accent); text-decoration: none; }
 .prose a:hover { text-decoration: underline; }
@@ -710,7 +712,8 @@ a.badge:hover { transform: translateY(-1px); box-shadow: 0 18px 38px -18px rgba(
 .faq-list summary {
   cursor: pointer;
   list-style: none;
-  padding: 18px 36px 18px 0;
+  padding-block: 18px;
+  padding-inline: 0 36px;
   font-size: 1.02rem;
   font-weight: 600;
   position: relative;
@@ -719,7 +722,7 @@ a.badge:hover { transform: translateY(-1px); box-shadow: 0 18px 38px -18px rgba(
 .faq-list summary::after {
   content: '+';
   position: absolute;
-  right: 2px;
+  inset-inline-end: 2px;
   top: 50%;
   transform: translateY(-50%);
   font-size: 1.3rem;
@@ -808,3 +811,86 @@ a.badge:hover { transform: translateY(-1px); box-shadow: 0 18px 38px -18px rgba(
     transition: none;
   }
 }
+
+/* ============ Language picker ============ */
+.lang-dropdown { position: relative; }
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.lang-btn:hover, .lang-btn[aria-expanded="true"] { border-color: var(--accent); background: var(--accent-soft); }
+.lang-btn:focus-visible, .lang-menu button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.lang-btn .chev { color: var(--muted); transition: transform 0.15s ease; }
+.lang-btn[aria-expanded="true"] .chev { transform: rotate(180deg); }
+.lang-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  inset-inline-end: 0;
+  z-index: 60;
+  min-width: 200px;
+  padding: 6px;
+  display: grid;
+  gap: 2px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--bg-soft);
+  box-shadow: 0 24px 48px -18px rgba(0, 0, 0, 0.85);
+}
+.lang-menu[hidden] { display: none; }
+.lang-menu button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  padding: 9px 12px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.9rem;
+  text-align: start;
+  cursor: pointer;
+}
+.lang-menu button:hover, .lang-menu button:focus-visible { background: var(--accent-soft); }
+.lang-menu .check { color: var(--accent); visibility: hidden; flex: none; }
+.lang-menu [aria-checked="true"] { color: var(--accent); font-weight: 600; }
+.lang-menu [aria-checked="true"] .check { visibility: visible; }
+@media (max-width: 599px) {
+  .lang-btn-label { display: none; }
+  .lang-btn { padding: 0 10px; }
+}
+
+/* ============ Pro tag ============ */
+.pro-tag {
+  display: inline-block;
+  margin-inline-start: 6px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--accent-warm);
+  color: #1E1403;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  vertical-align: 0.2em;
+}
+.chips-pro li { border-color: rgba(255, 180, 84, 0.45); }
+.chips-pro li:hover { background: var(--accent-warm); border-color: var(--accent-warm); color: #1E1403; }
+
+/* ============ Right-to-left (Arabic) ============ */
+/* Tracking breaks Arabic joining, and uppercase means nothing there. */
+html[dir="rtl"] body * { letter-spacing: 0 !important; }
+html[dir="rtl"] .readout, html[dir="rtl"] .footer-pkg, html[dir="rtl"] code { direction: ltr; unicode-bidi: isolate; }

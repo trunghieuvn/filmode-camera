@@ -1,6 +1,6 @@
-/* Camera Filmode landing — scroll reveal + screenshot lightbox.
-   Same behaviour as the Video Compressor landing, minus the language dropdown
-   (this site is English only). No dependencies, no build step. */
+/* FilCam landing — scroll reveal + screenshot lightbox. The language picker
+   lives in i18n.js, loaded first; the lightbox takes its labels from it.
+   No dependencies, no build step. */
 (function () {
   'use strict';
 
@@ -36,7 +36,8 @@
   }
 
   /* ---------- Screenshot lightbox ---------- */
-  var LB_TEXT = { open: 'View full screen', close: 'Close', prev: 'Previous screenshot', next: 'Next screenshot' };
+  var i18n = window.filcamI18n || { t: function (k) { return k; }, onChange: function () {} };
+  function lbText(k) { return i18n.t('lb.' + k); }
   var lbDialog = null;
   var lbImg = null;
   var lbCapText = null;
@@ -70,9 +71,7 @@
     lbPrev = d.querySelector('.lightbox-prev');
     lbNext = d.querySelector('.lightbox-next');
 
-    lbClose.setAttribute('aria-label', LB_TEXT.close);
-    lbPrev.setAttribute('aria-label', LB_TEXT.prev);
-    lbNext.setAttribute('aria-label', LB_TEXT.next);
+    lbLabel();
 
     lbClose.addEventListener('click', lbHide);
     lbPrev.addEventListener('click', function () { lbGo(-1); });
@@ -103,6 +102,12 @@
       touchX = null;
       if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) lbGo(dx < 0 ? 1 : -1);
     }, { passive: true });
+  }
+
+  function lbLabel() {
+    lbClose.setAttribute('aria-label', lbText('close'));
+    lbPrev.setAttribute('aria-label', lbText('prev'));
+    lbNext.setAttribute('aria-label', lbText('next'));
   }
 
   function lbRender() {
@@ -150,7 +155,7 @@
     var btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'shot-trigger';
-    btn.setAttribute('aria-label', LB_TEXT.open);
+    btn.setAttribute('aria-label', lbText('open'));
     fig.insertBefore(btn, img);
     btn.appendChild(img);
     var i = lbShots.length;
@@ -159,6 +164,17 @@
       if (!lbDialog) lbBuild();
       lbShow(i);
     });
+  });
+
+  /* A language switch relabels the triggers, and the open lightbox if any. */
+  i18n.onChange(function () {
+    Array.prototype.forEach.call(document.querySelectorAll('.shot-trigger'), function (b) {
+      b.setAttribute('aria-label', lbText('open'));
+    });
+    if (lbDialog) {
+      lbLabel();
+      if (lbDialog.open) lbRender();
+    }
   });
 
 })();
