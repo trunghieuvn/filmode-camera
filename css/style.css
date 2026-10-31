@@ -768,7 +768,6 @@ a.badge:hover { transform: translateY(-1px); box-shadow: 0 18px 38px -18px rgba(
   font-family: var(--mono);
   font-size: 0.68rem !important;
   letter-spacing: 0.08em;
-  opacity: 0.75;
 }
 .footer-links {
   display: flex;

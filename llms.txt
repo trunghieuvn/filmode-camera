@@ -1,0 +1,22 @@
+# FilCam: Pro Manual RAW Camera
+
+> Manual camera for Android: ISO, shutter, Kelvin white balance, manual focus, free RAW DNG, 43 film looks, focus peaking and a histogram. No ads, no account.
+
+- Platform: Android 8.0+
+- Category: Photography
+- Price: free to download
+- Developer: FightTech
+- Website: https://trunghieuvn.github.io/filmode-camera/
+
+Every page below is also available as Markdown at the same address with .md (the home page is index.md). llms-full.txt has them all in one file.
+
+## Pages
+
+- [FilCam — Manual & RAW DNG Camera App for Android](https://trunghieuvn.github.io/filmode-camera/index.md): Manual camera for Android: ISO, shutter, Kelvin white balance, manual focus, free RAW DNG, 43 film looks, focus peaking and a histogram. No ads, no account.
+- [Support & Help — FilCam for Android](https://trunghieuvn.github.io/filmode-camera/support.md): FilCam help: the P/S/I/M modes, long exposures and RAW DNG, bracketing and the intervalometer, where photos are saved, and how to reach us.
+
+## Optional
+
+- [Privacy Policy — Groundglass for Android](https://trunghieuvn.github.io/filmode-camera/groundglass-privacy.md): Groundglass privacy policy: what each permission is for, why photos and geotags stay on device, and the anonymous reports you can switch off.
+- [Privacy Policy — FilCam for Android](https://trunghieuvn.github.io/filmode-camera/privacy.md): FilCam privacy policy: what each permission is for, why geotags and photos stay on your device, what the usage reports send and how to switch them off.
+- [Terms of Use — FilCam for Android](https://trunghieuvn.github.io/filmode-camera/terms.md): FilCam terms of use: the licence, what the free app does and does not promise, your responsibility for the photographs you take, and the governing law.
