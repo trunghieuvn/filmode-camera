@@ -6,7 +6,7 @@ Source: https://trunghieuvn.github.io/filmode-camera/terms.html
 
 # Terms of Use
 
-Effective date: September 4, 2026
+Effective date: November 3, 2026
 
 These terms govern your use of FilCam — published on Google Play as *FilCam: Pro Manual RAW Camera*, package `app.filmode.filcam` — published by FightTech. By installing or using the app you agree to them.
 
@@ -20,7 +20,7 @@ We grant you a personal, non-exclusive, non-transferable licence to use the app 
 
 ## 3. Price
 
-The app is free. There is no subscription, no in-app purchase, no paid tier and no advertising. RAW DNG capture and every other feature are included at no cost. We may change this in a future version; anything you have already installed keeps working as it is, and any change would be announced before it took effect.
+The app is free to download. FilCam Pro is optional and is sold through Google Play at the prices Google Play shows you before you buy. The free version shows ads from Google AdMob: a banner on the Settings screen only, and an optional video ad you can choose to watch to use Pro for 30 minutes. Ads never appear over the viewfinder or while you shoot, and Pro removes them; see the Privacy Policy for the data the ad SDKs use.
 
 ## 4. Your photographs
 

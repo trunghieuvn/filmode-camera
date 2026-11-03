@@ -1,6 +1,6 @@
 # FilCam — Manual & RAW DNG Camera App for Android
 
-> Manual camera for Android: ISO, shutter, Kelvin white balance, manual focus, free RAW DNG, 43 film looks, focus peaking and a histogram. No ads, no account.
+> Manual camera for Android: ISO, shutter, Kelvin white balance, manual focus, free RAW DNG, 43 film looks, focus peaking and a histogram. No account; Pro has no ads.
 
 Source: https://trunghieuvn.github.io/filmode-camera/
 
@@ -12,7 +12,7 @@ FilCam puts ISO, shutter, exposure compensation, white balance in Kelvin and man
 
 [Get it on**Google Play**](https://play.google.com/store/apps/details?id=app.filmode.filcam) [Coming soon on the**App Store**](https://filcam.web.app/ios/)
 
-Android 8.0+ · free to download · no ads, no watermark · no account
+Android 8.0+ · free to download · no watermark · no account
 
 ISO 1/8000 – 30" 2200 – 9500 K EV ±3 RAW + JPG
 
@@ -124,7 +124,7 @@ There is no sign-up screen, no cloud library and no sync toggle to switch off. F
 
 **0**accounts or sign-ups
 
-**0**ads or watermarks
+**0**watermarks
 
 Exposure modes
 
@@ -214,7 +214,7 @@ In S and M mode the shutter goes as long as your phone's sensor reports, free �
 
 **What is free, and what is FilCam Pro?**
 
-Manual controls, RAW DNG, the film looks, the light effects, the viewfinder tools and the photo editor are free, with no ads and no watermark. FilCam Pro adds the advanced drive modes — exposure bracketing, night mode, focus stacking, the intervalometer, long exposure and light trails. It is sold monthly, yearly with a 7-day free trial, or as a one-time lifetime unlock, and Google Play shows the price in your currency before you pay.
+Manual controls, RAW DNG, the film looks, the light effects, the viewfinder tools and the photo editor are free, with no watermark. The free version shows a small banner ad on the Settings screen only, never over the viewfinder or while you shoot, and you can watch an optional video ad to try Pro for 30 minutes. FilCam Pro removes the ads and adds the advanced drive modes — exposure bracketing, night mode, focus stacking, the intervalometer, long exposure and light trails. It is sold monthly, yearly with a 7-day free trial, or as a one-time lifetime unlock, and Google Play shows the price in your currency before you pay.
 
 **Do my photos get uploaded anywhere?**
 
